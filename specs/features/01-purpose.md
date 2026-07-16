@@ -1,9 +1,11 @@
 ---
 type: Feature
 title: Purpose
-description: Minimal GitHub repo template with community docs and automation, no app code.
-tags: [github, template]
+description: Worker validating Supabase JWTs and calling Gemini server-side.
+tags: [backend, gemini, hono]
 timestamp: 2026-07-15T00:00:00Z
 ---
 
-Community docs, Dependabot, CODEOWNERS, and issue/PR scaffolding from [@open-templates](https://github.com/open-templates). Application code is added by adopters after init.
+Thin backend between a Supabase-authenticated SPA and **Google Gemini**. `GEMINI_API_KEY` stays on the worker.
+
+Pairs with [react-supabase-auth-ai-chat-template](https://github.com/open-templates/react-supabase-auth-ai-chat-template).

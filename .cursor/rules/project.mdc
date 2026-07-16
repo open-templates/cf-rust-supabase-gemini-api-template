@@ -1,0 +1,19 @@
+---
+description: cf-rust-supabase-gemini-api-template conventions and onboarding for agents
+alwaysApply: true
+---
+
+# cf-rust-supabase-gemini-api-template
+
+Read **`INSTRUCTIONS.md`** first for Supabase prerequisites, env setup, and how to pair with the React frontend demo.
+
+- Feature contract: `index.md`
+- OKF skills: `.agents/skills/index.md`
+- Agent skills: `.agents/skills/README.md`
+- Default API: `GET /health` (public), `GET /me` (JWT), `POST /chat` (JWT + Gemini)
+
+Stack: **Rust workers-rs** on Cloudflare Workers (`worker::Router`).
+
+When adding endpoints: register handlers on `Router` in `src/lib.rs`, use `jwt::extract_bearer` + `supabase::get_user` for auth, update `index.md`.
+
+Pairing frontend (not in this repo): [react-supabase-auth-ai-chat-template](https://github.com/open-templates/react-supabase-auth-ai-chat-template) — set its `VITE_API_BASE_URL` to this worker and `ALLOWED_ORIGINS` here to the frontend origin.

@@ -1,36 +1,48 @@
-# github-repo-template
+# cf-rust-supabase-gemini-api-template
 
-A **minimal GitHub repository template** from [@open-templates](https://github.com/open-templates). Community docs, Dependabot, CODEOWNERS, and issue/PR scaffolding — no application code until you add it.
+Minimal Cloudflare Worker API built with **Rust** ([workers-rs](https://github.com/cloudflare/workers-rs)), **Supabase Auth**, and **Gemini** from [@open-templates](https://github.com/open-templates). Pairs with [react-supabase-auth-ai-chat-template](https://github.com/open-templates/react-supabase-auth-ai-chat-template).
+
+Alternative to [cf-rust-supabase-gemini-api-template](https://github.com/open-templates/cf-rust-supabase-gemini-api-template) for teams preferring Rust.
 
 ## Quick start
 
-1. Click **Use this template** on GitHub.
-2. Clone and copy personalized files from [`templates/`](templates/):
+**Prerequisites:** Rust toolchain (`rustup`), Node.js (for Wrangler).
 
 ```bash
-git clone https://github.com/open-templates/github-repo-template.git my-new-repo
-cd my-new-repo
-./scripts/init-from-template.sh
+./scripts/init-from-template.sh   # optional personalization
+npx wrangler dev
 ```
 
-The hosted repo keeps **@open-templates** branding in root markdown until you run init. See [docs/init-from-template.md](docs/init-from-template.md).
+Test:
 
-### GitHub automation (included)
+```bash
+curl http://localhost:8787/health
+```
 
-| File | Purpose |
-|------|---------|
-| [`.github/dependabot.yml`](.github/dependabot.yml) | Dependency update PRs |
-| [`.github/workflows/dependabot-signature.yml`](.github/workflows/dependabot-signature.yml) | `Co-authored-by` via `github.repository_owner` at runtime |
-| [`.github/CODEOWNERS`](.github/CODEOWNERS) | Review ownership |
+## Out-of-the-box features
 
-Full reference: **[docs/README.md](docs/README.md)** · [INSTRUCTIONS.md](INSTRUCTIONS.md) · [index.md](index.md) · [.agents/skills/](.agents/skills/)
+| Endpoint | Auth | Description |
+|----------|------|-------------|
+| `GET /health` | Public | Liveness check |
+| `GET /me` | Bearer JWT | Current Supabase user |
+| `POST /chat` | Bearer JWT | Gemini chat (`message`, optional `history`) |
+| `GET /chat?message=` | Bearer JWT | Query-string chat for quick tests |
+
+See [`index.md`](index.md) for detailed behavior and extension guidance.
+
+Agent docs: [INSTRUCTIONS.md](INSTRUCTIONS.md) · [.agents/skills/](.agents/skills/)
+
+## Environment variables
+
+| Variable | Required | Purpose |
+|----------|----------|---------|
+| `SUPABASE_URL` | Yes | Supabase project URL |
+| `SUPABASE_ANON_KEY` | Yes | Anon key |
+| `SUPABASE_SERVICE_ROLE_KEY` | Yes | Reserved for admin operations |
+| `GEMINI_API_KEY` | Yes | Google AI Studio API key |
+| `GEMINI_MODEL` | No | Default `gemini-2.5-flash` |
+| `ALLOWED_ORIGINS` | No | Comma-separated CORS origins |
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
-
----
-
-## Repository documents
-
-**README** | [INSTRUCTIONS](INSTRUCTIONS.md) | [CHANGELOG](CHANGELOG.md) | [CONTRIBUTING](CONTRIBUTING.md) | [SECURITY](SECURITY.md) | [CODE_OF_CONDUCT](CODE_OF_CONDUCT.md)
+MIT

@@ -2,19 +2,22 @@
 okf_version: "0.1"
 ---
 
-# github-repo-template skills
+# cf-rust-supabase-gemini-api-template skills
 
 ## Shared (synced)
 
-Optional cross-template references: [auth/](shared/auth/), [supabase/](shared/supabase/)
+* [auth/](shared/auth/)
+* [supabase/](shared/supabase/)
 
 ## Local modules
 
-* [init-from-template](modules/init-from-template.md) - personalization script
+* [auth-middleware](modules/auth-middleware.md)
+* [chat-route](modules/chat-route.md) - POST/GET /chat handlers
+* [gemini-client](modules/gemini-client.md) - @google/genai wrapper
 
 ## Agent skills
 
-Cursor catalog: [README.md](README.md) — procedural guides (add `SKILL.md` packs when you adopt a stack).
+Cursor `SKILL.md` packs: [README.md](README.md)
 
 ## Specs
 

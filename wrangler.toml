@@ -1,0 +1,9 @@
+name = "cf-rust-supabase-gemini-api-template"
+main = "build/index.js"
+compatibility_date = "2026-07-03"
+
+[build]
+command = "cargo install -q \"worker-build@^0.8\" && worker-build --release"
+
+[observability]
+enabled = true

@@ -13,7 +13,7 @@ await initFromTemplate({
   includePackageName: true,
   includeBundler: true,
   defaultBundler: 'npm',
-  nextSteps: 'npm install && npm run dev',
+  nextSteps: 'npm install && npx wrangler dev',
 });
 ```
 
