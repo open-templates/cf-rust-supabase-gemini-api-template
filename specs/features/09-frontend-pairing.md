@@ -1,9 +1,9 @@
 ---
 type: Feature
 title: Frontend pairing
-description: Contract with react-supabase-auth-ai-chat-template.
+description: Contract with Supabase auth AI chat SPAs.
 tags: [pairing, frontend]
-timestamp: 2026-07-15T00:00:00Z
+timestamp: 2026-07-16T00:00:00Z
 ---
 
 | Frontend call | Backend route |
@@ -12,4 +12,13 @@ timestamp: 2026-07-15T00:00:00Z
 | Home profile | `GET /me` |
 | AI chat | `POST /chat` with `{ message, history }` |
 
-Frontend OKF spec: [react-supabase-auth-ai-chat-template/index.md](https://github.com/open-templates/react-supabase-auth-ai-chat-template/blob/main/index.md).
+Base URL in frontends: `VITE_API_BASE_URL` (default `http://localhost:8787`).
+
+## Paired frontend templates (same contract)
+
+| Template | Stack |
+|----------|-------|
+| [react-supabase-auth-ai-chat-template](https://github.com/open-templates/react-supabase-auth-ai-chat-template) | React |
+| [vue-supabase-auth-ai-chat-template](https://github.com/open-templates/vue-supabase-auth-ai-chat-template) | Vue |
+| [svelte-supabase-auth-ai-chat-template](https://github.com/open-templates/svelte-supabase-auth-ai-chat-template) | Svelte |
+| [astro-supabase-auth-ai-chat-template](https://github.com/open-templates/astro-supabase-auth-ai-chat-template) | Astro |
